@@ -7,64 +7,63 @@
     android:background="@drawable/loginsignup"
     tools:context=".LoginActivity">
 
-<!--    <RelativeLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@drawable/splash_screen">-->
 
-        <TextView
-            android:id="@+id/txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Login"
-            android:textSize="50sp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="35dp"
-            />
 
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txt"
-            android:paddingRight="20dp"
-            android:paddingLeft="20dp"
-            android:layout_centerHorizontal="true"
-            android:hint="email-adress"/>
+    <TextView
+        android:id="@+id/txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textSize="50sp"
+        android:paddingLeft="30dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="20dp"
+        />
 
-        <EditText
-            android:id="@+id/names"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/email"
-            android:hint="names"
-            android:paddingRight="20dp"
-            android:paddingLeft="20dp"
-            android:layout_centerHorizontal="true"
-            />
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt"
+        android:layout_marginLeft="20dp"
+        android:hint="email-adress"
+        android:layout_marginBottom="20dp"/>
 
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/names"
-            android:hint="password"
-            android:paddingRight="20dp"
-            android:paddingLeft="20dp"
-            android:layout_centerHorizontal="true"/>
 
-        <EditText
-            android:id="@+id/confpassword"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/password"
-            android:hint="confirm password"
-            android:paddingRight="20dp"
-            android:paddingLeft="20dp"
-            android:layout_centerHorizontal="true"/>
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/email"
+        android:hint="password"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="22dp"/>
 
-<!--    </RelativeLayout>-->
 
-    
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="50dp"
+        android:text="Register"
+        android:background = "@drawable/round_button"
+        android:textSize="20sp"
+        android:layout_below="@id/password"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Not yet registered? signup"
+        android:layout_below="@id/register"
+        android:layout_marginLeft="50dp"/>
+
+
+
 
 </RelativeLayout>
