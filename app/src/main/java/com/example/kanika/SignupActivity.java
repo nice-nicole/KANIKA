@@ -55,16 +55,16 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String noms = names.getText().toString();
+//                String noms = names.getText().toString();
                 String mail = email.getText().toString();
                 String pass = password.getText().toString();
-                String pass2 = email.getText().toString();
+//                String pass2 = email.getText().toString();
 
-                if(names.getText().length()==0){
-                    names.setError("This field is required!");
-                    names.requestFocus();
-                }
-                else if(email.getText().length()==0){
+//                if(names.getText().length()==0){
+//                    names.setError("This field is required!");
+//                    names.requestFocus();
+//                }
+                 if(email.getText().length()==0){
                     email.setError("This field is required!");
                     email.requestFocus();
                 }
@@ -72,10 +72,10 @@ public class SignupActivity extends AppCompatActivity {
                     password.setError("This field is required");
                     password.requestFocus();
                 }
-                else if(confirmpassword.getText().length()==0){
-                    confirmpassword.setError("This field is required");
-                    confirmpassword.requestFocus();
-                }
+//                else if(confirmpassword.getText().length()==0){
+//                    confirmpassword.setError("This field is required");
+//                    confirmpassword.requestFocus();
+//                }
                 else if(email.getText().length()==0 && password.getText().length()==0 && confirmpassword.getText().length()==0 && names.getText().length()==0){
                     Toast.makeText(SignupActivity.this, "Fill all the fields please", Toast.LENGTH_SHORT).show();
                 }
