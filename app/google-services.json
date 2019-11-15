@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "740571035746",
+    "firebase_url": "https://kanika-c6287.firebaseio.com",
+    "project_id": "kanika-c6287",
+    "storage_bucket": "kanika-c6287.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:740571035746:android:d6aabaee5e1f0e516c393b",
+        "android_client_info": {
+          "package_name": "com.example.kanika"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "740571035746-eig019lkdo7s0een1u14ntkst7kss7i9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kanika",
+            "certificate_hash": "ba8babedb0c6163613941604812e13d18a9367f0"
+          }
+        },
+        {
+          "client_id": "740571035746-jsk1bel53ri2edehh4sib992eem6edeo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc2adlx5MLDULZ36yvHxcTEMCmDlT3VLs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "740571035746-jsk1bel53ri2edehh4sib992eem6edeo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
