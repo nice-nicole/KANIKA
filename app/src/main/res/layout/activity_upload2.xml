@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Upload2Activity">
+    tools:context=".View.Upload2Activity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -48,9 +48,43 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:minLines="3"
                 android:inputType="text"
-                android:hint="Name"
+                android:hint="Description"
                 android:layout_marginLeft="16dp"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/button_choose_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:textColor="@color/white"
+                    android:background="@color/colorPrimary"
+                    android:text="Choose image"
+                    android:layout_marginLeft="16dp"/>
+
+                <ImageView
+                    android:id="@+id/chosenImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="180dp"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/uploadBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/white"
+                android:text="Upload"/>
 
         </LinearLayout>
     </ScrollView>
