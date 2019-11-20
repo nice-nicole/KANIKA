@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
                 String pass = password.getText().toString();
 
                 if(mail.equals("nic@gmail.com") && pass.equals("123456")){
-                    startActivity(new Intent(LoginActivity.this, AdminActivity.class));
+                    startActivity(new Intent(LoginActivity.this, shareholderActivity.class));
                     finish();
                 }
 
