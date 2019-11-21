@@ -19,6 +19,8 @@ import android.widget.Toast;
 
 import com.example.kanika.Model.SparePart;
 import com.example.kanika.R;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -133,6 +135,49 @@ public class shareholderActivity extends AppCompatActivity {
                             }, 500);
 
                             Toast.makeText(shareholderActivity.this, "Upload successful", Toast.LENGTH_LONG).show();
+
+
+                            if (mImageUri != null)
+                            {
+                                mStorageRef.putFile(mImageUri).continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>()
+                                {
+                                    @Override
+                                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception
+                                    {
+                                        if (!task.isSuccessful())
+                                        {
+                                            throw task.getException();
+                                        }
+                                        return mStorageRef.getDownloadUrl();
+                                    }
+                                }).addOnCompleteListener(new OnCompleteListener<Uri>()
+                                {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Uri> task)
+                                    {
+                                        if (task.isSuccessful())
+                                        {
+                                            Uri downloadUri = task.getResult();
+                                            /*Log.e(TAG, "then: " + downloadUri.toString());*/
+
+
+                                            SparePart upload = new SparePart(mEditTextFileName.getText().toString().trim(),
+                                                    downloadUri.toString());
+
+                                            mDatabaseRef.push().setValue(upload);
+                                        } else
+                                        {
+                                            Toast.makeText(shareholderActivity.this, "upload failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                            }
+
+
+
+
+
+
                             SparePart upload = new SparePart(mEditTextFileName.getText().toString().trim(),
                                     taskSnapshot.getStorage().getDownloadUrl().toString());
                             String uploadId = mDatabaseRef.push().getKey();

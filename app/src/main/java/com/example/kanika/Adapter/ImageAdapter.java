@@ -38,7 +38,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         holder.textViewName.setText(sparePartCurrent.getName());
         Picasso.with(mContext)
                 .load(sparePartCurrent.getImageUrl())
-                .placeholder(R.drawable.spareparts33)
+                .placeholder(R.mipmap.ic_launcher)
                 .fit()
                 .centerCrop()
                 .into(holder.imageView);
