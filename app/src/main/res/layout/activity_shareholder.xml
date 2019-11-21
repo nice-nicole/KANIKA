@@ -12,7 +12,8 @@
         android:id="@+id/button_choose_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Choose file"/>
+        android:text="Choose file"
+        android:fontFamily="@font/berkshire_swash" />
 
     <EditText
         android:id="@+id/edit_text_file_name"
@@ -22,7 +23,8 @@
         android:layout_toRightOf="@+id/button_choose_image"
         android:hint="Enter file name"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"/>
+        android:layout_marginLeft="16dp"
+        android:fontFamily="@font/berkshire_swash" />
 
     <ImageView
         android:id="@+id/image_view"
@@ -48,7 +50,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Upload"/>
+        android:text="Upload"
+        android:fontFamily="@font/berkshire_swash" />
 
     <TextView
         android:id="@+id/text_view_show_uploads"
@@ -62,7 +65,8 @@
         android:layout_toRightOf="@+id/button_upload"
         android:text="Show Uploads"
         android:textSize="16sp"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:fontFamily="@font/berkshire_swash" />
 
 <!--    <TextView-->
 <!--        android:id="@+id/headerTxt"-->
