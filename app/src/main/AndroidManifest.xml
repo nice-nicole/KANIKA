@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.RowModel"></activity>
+        <activity android:name=".View.ImagesActivity"></activity>
+        <activity android:name=".View.RowModel" />
         <activity android:name=".View.Upload2Activity" />
         <activity android:name=".View.DetailActivity" />
         <activity android:name=".View.ItemsActivity" />

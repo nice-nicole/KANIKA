@@ -20,6 +20,7 @@ import com.example.kanika.Model.SparePart;
 import com.example.kanika.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -107,76 +108,59 @@ public class Upload2Activity extends AppCompatActivity {
     }
 
     private void uploadFile(){
-//        if(mImageUri != null){
-//            StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()+"."+ getFileExtension(mImageUri));
-//
-//            uploadProgressBar.setVisibility(View.VISIBLE);
-//            uploadProgressBar.setIndeterminate(true);
-//
-//            mUploadTask = fileReference.putFile(mImageUri)
-//                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//                        @Override
-//                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                            Handler handler = new Handler();
-//                            handler.postDelayed(new Runnable() {
-//                                @Override
-//                                public void run() {
-//                                    uploadProgressBar.setVisibility(View.VISIBLE);
-//                                    uploadProgressBar.setIndeterminate(false);
-//                                    uploadProgressBar.setProgress(0);
-//                                }
-//                            }, 500);
-//
-//                            Toast.makeText(Upload2Activity.this, "Spare part uploaded successfuly", Toast.LENGTH_SHORT).show();
-//                            SparePart upload = new SparePart(nameEditText.getText().toString().trim(),
-//                                    taskSnapshot.getDownloadUrl().toString(),
-//                                    descriptionEditText.getText().toString());
-//
-//                            String uploadId = mDataBaseRef.push().getKey();
-//                            mDataBaseRef.child(uploadId).setValue(upload);
-//
-//                            uploadProgressBar.setVisibility(View.INVISIBLE);
-//                            openImagesActivity();
-//                        }
-//                    })
-//                    .addOnFailureListener(new OnFailureListener() {
-//                        @Override
-//                        public void onFailure(@NonNull Exception e) {
-//                            uploadProgressBar.setVisibility(View.INVISIBLE);
-//                            Toast.makeText(Upload2Activity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-//
-//                        }
-//                    })
-//                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-//                        @Override
-//                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-//                            double progress = (100.0 * taskSnapshot.getBytesTransferred());
-//                            uploadProgressBar.setProgress((int) progress);
-//                        }
-//                    });
-//        }else {
-//            Toast.makeText(this, "you haven't selected any file", Toast.LENGTH_SHORT).show();
-//
-//        }
+        if(mImageUri != null){
+            StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()+"."+ getFileExtension(mImageUri));
 
-        StorageReference Ref= mStorageRef.child(System.currentTimeMillis()+"."+getFileExtension(mImageUri));
+            uploadProgressBar.setVisibility(View.VISIBLE);
+            uploadProgressBar.setIndeterminate(true);
 
-        Ref.putFile(mImageUri)
-                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        // Get a URL to the uploaded content
-//                        Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                        Toast.makeText(Upload2Activity.this, "Image uploaded successfully", Toast.LENGTH_LONG).show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
-                        // Handle unsuccessful uploads
-                        // ...
-                    }
-                });
+            mUploadTask = fileReference.putFile(mImageUri)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    uploadProgressBar.setVisibility(View.VISIBLE);
+                                    uploadProgressBar.setIndeterminate(false);
+                                    uploadProgressBar.setProgress(0);
+                                }
+                            }, 500);
+
+                            Toast.makeText(Upload2Activity.this, "Spare part uploaded successfuly", Toast.LENGTH_SHORT).show();
+                            Task<Uri> uri=taskSnapshot.getStorage().getDownloadUrl();
+                            SparePart upload = new SparePart(nameEditText.getText().toString().trim(),
+                                    uri.toString());
+
+                            String uploadId = mDataBaseRef.push().getKey();
+                            mDataBaseRef.child(uploadId).setValue(upload);
+
+                            uploadProgressBar.setVisibility(View.INVISIBLE);
+                            openImagesActivity();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            uploadProgressBar.setVisibility(View.INVISIBLE);
+                            Toast.makeText(Upload2Activity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress = (100.0 * taskSnapshot.getBytesTransferred());
+                            uploadProgressBar.setProgress((int) progress);
+                        }
+                    });
+        }else {
+            Toast.makeText(this, "you haven't selected any file", Toast.LENGTH_SHORT).show();
+
+        }
+
+
 
     }
     private void openImagesActivity(){

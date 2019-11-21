@@ -7,6 +7,13 @@
     android:background="@drawable/loginsignup"
     tools:context=".View.LoginActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
 
 
     <TextView
@@ -62,6 +69,9 @@
         android:text="Not yet registered? signup"
         android:layout_below="@id/login"
         android:layout_marginLeft="50dp"/>
+
+    </LinearLayout>
+    </ScrollView>
 
 
 
